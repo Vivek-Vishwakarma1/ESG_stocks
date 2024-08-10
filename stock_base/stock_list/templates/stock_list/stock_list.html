@@ -1,0 +1,41 @@
+<!-- stock_list/templates/stock_list/stock_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock List with ESG Scores</title>
+</head>
+<body>
+    <h1>Stock List with ESG Scores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Ticker</th>
+                <th>Sector</th>
+                <th>Market Cap</th>
+                <th>Environmental</th>
+                <th>Social</th>
+                <th>Governance</th>
+                <th>Overall</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.ticker }}</td>
+                <td>{{ stock.sector }}</td>
+                <td>{{ stock.market_cap }}</td>
+                <td>{{ stock.esgscore.environmental_score }}</td>
+                <td>{{ stock.esgscore.social_score }}</td>
+                <td>{{ stock.esgscore.governance_score }}</td>
+                <td>{{ stock.esgscore.overall_score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
